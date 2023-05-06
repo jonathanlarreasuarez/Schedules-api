@@ -1,0 +1,98 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Schedule Application API",
+        "description": "Documentation Schedule Application.",
+        "contact": {
+            "email": "jonathanlarreasuarez@gmail.com"
+        },
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/v1/calendar-dates": {
+            "get": {
+                "tags": [
+                    "Calendar"
+                ],
+                "summary": "Listar los dias de un calendario por rangos de fechas",
+                "description": "Muestra todos los dias de un calendario por rangos de fechas en formato JSON",
+                "operationId": "getAllDaysByCalendar",
+                "parameters": [
+                    {
+                        "name": "start_date",
+                        "in": "path",
+                        "description": "Fecha de inicio",
+                        "required": true,
+                        "schema": {
+                            "type": "date",
+                            "example": "2021-01-01"
+                        }
+                    },
+                    {
+                        "name": "end_date",
+                        "in": "path",
+                        "description": "Fecha de fin",
+                        "required": false,
+                        "schema": {
+                            "type": "date",
+                            "example": "2021-01-31"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "404": {
+                        "description": "No encontrado"
+                    },
+                    "500": {
+                        "description": "Error interno del servidor"
+                    }
+                }
+            }
+        },
+        "/api/v1/routes": {
+            "get": {
+                "tags": [
+                    "Routes"
+                ],
+                "summary": "Listar Todas las rutas",
+                "description": "Muestra todas las rutas en formato JSON",
+                "operationId": "getAllRoutes",
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "404": {
+                        "description": "No encontrado"
+                    },
+                    "500": {
+                        "description": "Error interno del servidor"
+                    }
+                }
+            }
+        },
+        "/api/v1/routes/{route}/calendar": {
+            "get": {
+                "tags": [
+                    "Routes"
+                ],
+                "summary": "Listar los dias de la ruta",
+                "description": "Muestra todos los dias de una ruta en formato JSON",
+                "operationId": "getAllDaysByRoute",
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "404": {
+                        "description": "No encontrado"
+                    },
+                    "500": {
+                        "description": "Error interno del servidor"
+                    }
+                }
+            }
+        }
+    }
+}
